@@ -77,17 +77,17 @@ s = 'aaacb'
 
 def R_iter(s):
     n = len(s)
-    dp = [[set() for _ in range(n+1)] for _ in range(n+1)]
+    dp = [[set() for _ in range(n)] for _ in range(n)]
     for i in range(n):
-        dp[i][i+1] = {s[i]}
+        dp[i][i] = {s[i]}
     
     for l in range(2, n+1):
         for i in range(n-l+1):
             j = i + l
-            for k in range(i+1, j):
-                dp[i][j] |= SETMULT(dp[i][k], dp[k][j])
-    
-    return dp[0][n]
+            for k in range(i, j-1):
+                dp[i][j-1] |= SETMULT(dp[i][k], dp[k+1][j-1])
+                
+    return dp[0][n-1]
 
 print (R(s))
 print (Rr(s))
