@@ -79,7 +79,7 @@ def R_iter(s):
     for i in range(n):
         dp[i][i] = {s[i]}
     
-    for l in range(1, n+1):
+    for l in range(1, n):
         for i in range(n-l):
             j = i + l
             for k in range(i, j):
