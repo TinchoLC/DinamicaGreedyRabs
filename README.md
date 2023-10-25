@@ -4,5 +4,5 @@ Resolucion de el trabajo practico de Dinamica y Greedy para la materia "Algoritm
 ## Dinamica
 La funcion R tiene un costo de O(3^n) // Funciona con un "Divide y venceras", es top-bottom.
 
-La funcion R_iter tiene un costo de O(n^3) // Funciona partiendo desde la subestructura mínima, es bottom-up.
+La funcion R_iter tiene un costo de O(n^2) // Funciona partiendo desde la subestructura mínima, es bottom-up.
 
