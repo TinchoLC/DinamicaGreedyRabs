@@ -72,7 +72,7 @@ def Rr(s, memo={}):
             results |= SETMULT(left_set, right_set)
         memo[s] = results
         return results
-s = 'aaacb'
+s = 'abca'
 
 
 def R_iter(s):
@@ -81,14 +81,20 @@ def R_iter(s):
     for i in range(n):
         dp[i][i] = {s[i]}
     
-    for l in range(2, n+1):
-        for i in range(n-l+1):
+    for l in range(1, n+1):
+        for i in range(n-l):
             j = i + l
-            for k in range(i, j-1):
-                dp[i][j-1] |= SETMULT(dp[i][k], dp[k+1][j-1])
+            for k in range(i, j):
+                dp[i][j] |= SETMULT(dp[i][k], dp[k+1][j])
+                # print(SETMULT(dp[i][k], dp[k+1][j]))
                 
+    """
+    for x in range(n):
+        for y in range (n):
+            print(dp[x][y])
+    """
     return dp[0][n-1]
-
-print (R(s))
-print (Rr(s))
+    
+#print (R(s))
+#print (Rr(s))
 print (R_iter(s))
