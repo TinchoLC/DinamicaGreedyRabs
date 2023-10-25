@@ -72,8 +72,6 @@ def Rr(s, memo={}):
             results |= SETMULT(left_set, right_set)
         memo[s] = results
         return results
-s = 'abca'
-
 
 def R_iter(s):
     n = len(s)
@@ -95,6 +93,7 @@ def R_iter(s):
     """
     return dp[0][n-1]
     
+s = input("ingrese secuencia: ")
 #print (R(s))
 #print (Rr(s))
 print (R_iter(s))
